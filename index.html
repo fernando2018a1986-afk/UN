@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNILA App</title>
+
+<style>
+:root { --bg:#0f172a; --card:#1e293b; }
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:Arial;
+  background:var(--bg);
+  color:white;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px;
+  background:var(--card);
+}
+
+.home-top {
+  flex:1;
+  margin:0 10px;
+  padding:12px;
+  font-weight:bold;
+  border:none;
+  border-radius:10px;
+  background:#22c55e;
+  color:white;
+  cursor:pointer;
+}
+
+.menu {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  padding:16px;
+}
+
+button {
+  padding:16px;
+  border:none;
+  border-radius:12px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* CORES */
+.unila { background:#2563eb; }
+.sigaa { background:#9333ea; }
+.gmail { background:#ea4335; }
+.google { background:#fbbc05; color:black; }
+.facebook { background:#1877f2; }
+.intercampi { background:#0ea5e9; }
+.contato { background:#22c55e; }
+.smartec { background:#06b6d4; }
+.biblioteca { background:#8b5cf6; }
+.enderecos { background:#eab308; color:black; }
+.ru { background:#f97316; }
+.notes { background:#14b8a6; }
+
+.page {
+  display:none;
+  padding:20px;
+  line-height:1.6;
+}
+
+.home-bottom {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  padding:16px;
+  background:#22c55e;
+  color:white;
+  font-weight:bold;
+  border:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <button onclick="goHome()">⬅</button>
+  <button class="home-top" onclick="goHome()">🏠 Página Inicial</button>
+  <div></div>
+</header>
+
+<!-- HOME -->
+<div id="home" class="menu">
+
+<button class="unila" onclick="openExternal('https://portal.unila.edu.br/')">Portal</button>
+<button class="sigaa" onclick="openExternal('https://sig.unila.edu.br/sigaa/verTelaLogin.do')">SIGAA</button>
+<button class="gmail" onclick="openExternal('https://mail.google.com/')">Gmail</button>
+<button class="google" onclick="openExternal('https://www.google.com/')">Google</button>
+
+<button class="facebook" onclick="openExternal('https://www.facebook.com/unila.oficial')">Page UNILA</button>
+
+<button class="biblioteca" onclick="openExternal('https://portal.unila.edu.br/biblioteca')">Bibliotecas</button>
+
+<button class="intercampi" onclick="openExternal('https://portal.unila.edu.br/proagi/delog/arquivos/horario-intercampi/quadro-de-horario-intercampi.pdf')">Intercampi</button>
+
+<button class="contato" onclick="openExternal('https://portal.unila.edu.br/prograd/contato')">Contato</button>
+
+<button class="smartec" onclick="openExternal('https://www.facebook.com/profile.php?id=61562436416014')">Smartec</button>
+
+<button class="enderecos" onclick="openPage('enderecosPage')">Endereços UNILA</button>
+<button class="ru" onclick="openPage('ruPage')">RU Restaurante</button>
+<button class="notes" onclick="openPage('notesPage')">Anotações</button>
+
+</div>
+
+<!-- ENDEREÇOS -->
+<div id="enderecosPage" class="page">
+<h2>📍 Endereços UNILA</h2><br>
+Jardim Universitário: Av. Tarquínio Joslin dos Santos, 1000<br><br>
+PTI: Av. Tancredo Neves, 6731<br><br>
+Almada: Av. Tancredo Neves, 3838<br><br>
+Integração: Av. Tancredo Neves, 3147
+</div>
+
+<!-- RU -->
+<div id="ruPage" class="page">
+<h2>🍽️ Restaurante Universitário</h2><br>
+JU: Café 06h45–08h / Almoço 11h–13h / Jantar 17h30–19h30<br><br>
+Parquetec: Almoço 11h–14h30 / Jantar 17h30–19h30
+</div>
+
+<!-- NOTAS -->
+<div id="notesPage" class="page">
+<textarea id="note"></textarea>
+<button onclick="saveNote()">Salvar</button>
+<div id="list"></div>
+</div>
+
+<button class="home-bottom" onclick="goHome()">🏠 Voltar para Início</button>
+
+<script>
+
+/* ABRIR LINKS */
+function openExternal(url){
+  localStorage.setItem("outside","1");
+  window.open(url, "_blank");
+}
+
+/* RESET TOTAL */
+function goHome(){
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+  const home = document.getElementById("home");
+  home.style.display="grid";
+  home.innerHTML = home.innerHTML;
+}
+
+/* NAVEGAÇÃO INTERNA */
+function openPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+  document.getElementById("home").style.display="none";
+  document.getElementById(id).style.display="block";
+}
+
+/* BOTÃO VOLTAR DO CELULAR */
+history.pushState(null,null,location.href);
+window.addEventListener("popstate",()=>{
+  goHome();
+  history.pushState(null,null,location.href);
+});
+
+/* 🔥 DETECTAR SAÍDA E VOLTA DO APP (PRINCIPAL) */
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) {
+    goHome();
+  }
+});
+
+/* 🔁 BACKUP (alguns navegadores) */
+window.addEventListener("pageshow", () => {
+  goHome();
+});
+
+/* 🔁 BACKUP EXTRA */
+window.addEventListener("focus", () => {
+  if(localStorage.getItem("outside")==="1"){
+    goHome();
+    localStorage.removeItem("outside");
+  }
+});
+
+/* NOTAS */
+function saveNote(){
+  const text=document.getElementById("note").value;
+  if(!text)return;
+
+  let notes=JSON.parse(localStorage.getItem("notes")||"[]");
+  notes.push(text);
+  localStorage.setItem("notes",JSON.stringify(notes));
+  document.getElementById("note").value="";
+  renderNotes();
+}
+
+function renderNotes(){
+  let notes=JSON.parse(localStorage.getItem("notes")||"[]");
+  const list=document.getElementById("list");
+  list.innerHTML="";
+
+  notes.forEach((n,i)=>{
+    let div=document.createElement("div");
+    div.innerHTML=n+"<br><button onclick='deleteNote("+i+")'>Excluir</button>";
+    list.appendChild(div);
+  });
+}
+
+function deleteNote(i){
+  let notes=JSON.parse(localStorage.getItem("notes")||"[]");
+  notes.splice(i,1);
+  localStorage.setItem("notes",JSON.stringify(notes));
+  renderNotes();
+}
+
+renderNotes();
+
+</script>
+
+</body>
+</html>
