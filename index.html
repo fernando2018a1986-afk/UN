@@ -16,7 +16,6 @@ body {
   color:white;
 }
 
-/* HEADER */
 header {
   display:flex;
   align-items:center;
@@ -35,7 +34,6 @@ header {
   font-weight:bold;
 }
 
-/* MENU */
 .menu {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
@@ -43,7 +41,6 @@ header {
   padding:16px;
 }
 
-/* BOTÕES */
 button {
   padding:16px;
   border:none;
@@ -68,15 +65,23 @@ button {
 .info { background:#ef4444; }
 .dev { background:#6366f1; }
 .share { background:#10b981; }
+.notes { background:#14b8a6; }
 
-/* PÁGINAS */
 .page {
   display:none;
   padding:20px;
   line-height:1.6;
 }
 
-/* BOTÃO FIXO */
+textarea {
+  width:100%;
+  height:120px;
+  border-radius:10px;
+  border:none;
+  padding:10px;
+  margin-bottom:10px;
+}
+
 .home-bottom {
   position:fixed;
   bottom:0;
@@ -100,11 +105,8 @@ button {
 <div id="home" class="menu">
 
 <button class="unila" onclick="openLink('https://portal.unila.edu.br/')">Portal</button>
-
 <button class="sigaa" onclick="openLink('https://sig.unila.edu.br/sigaa/verTelaLogin.do')">SIGAA</button>
-
 <button class="gmail" onclick="openLink('https://mail.google.com/')">Gmail</button>
-
 <button class="google" onclick="openLink('https://www.google.com/')">Google</button>
 
 <button class="facebook" onclick="openLink('https://www.facebook.com/unila.oficial')">
@@ -128,12 +130,10 @@ Smartec
 </button>
 
 <button class="enderecos" onclick="openPage('enderecosPage')">Endereços UNILA</button>
-
 <button class="ru" onclick="openPage('ruPage')">RU Restaurante</button>
-
 <button class="info" onclick="openPage('infoPage')">Últimas Informações</button>
-
 <button class="dev" onclick="openPage('devPage')">Desenvolvedor</button>
+<button class="notes" onclick="openPage('notesPage')">Anotações</button>
 
 <button class="share" onclick="shareApp()">📤 Compartilhar App</button>
 
@@ -141,30 +141,12 @@ Smartec
 
 <!-- ENDEREÇOS -->
 <div id="enderecosPage" class="page">
-
 <h2>📍 Endereços UNILA</h2><br>
 
-A UNILA possui diversas unidades em Foz do Iguaçu:<br><br>
-
-🏫 <b>Jardim Universitário (JU)</b><br>
-Av. Tarquínio Joslin dos Santos, 1000<br>
-CEP: 85870-650<br><br>
-
-🏢 <b>Parque Tecnológico Itaipu (PTI)</b><br>
-Av. Tancredo Neves, 6731<br>
-CEP: 85867-970<br><br>
-
-🏢 <b>Edifício Rio Almada</b><br>
-Av. Tancredo Neves, 3838<br><br>
-
-🏢 <b>Campus Integração</b><br>
-Av. Tancredo Neves, 3147<br><br>
-
-<hr><br>
-
-ℹ️ A maioria das aulas ocorre no JU e Integração.<br>
-Acesso ao PTI exige credenciamento.
-
+Jardim Universitário: Av. Tarquínio Joslin dos Santos, 1000<br><br>
+PTI: Av. Tancredo Neves, 6731<br><br>
+Almada: Av. Tancredo Neves, 3838<br><br>
+Integração: Av. Tancredo Neves, 3147
 </div>
 
 <!-- RU -->
@@ -172,17 +154,14 @@ Acesso ao PTI exige credenciamento.
 
 <h2>🍽️ Restaurante Universitário (RU)</h2><br>
 
-A UNILA possui dois RUs:<br><br>
+<b>Locais:</b><br><br>
 
-🏫 <b>RU Jardim Universitário</b><br>
-Av. Tarquínio Joslin dos Santos, 1000<br><br>
-
-🏢 <b>RU Itaipu Parquetec</b><br>
-Av. Tancredo Neves, 6731<br><br>
+JU: Av. Tarquínio Joslin dos Santos, 1000<br><br>
+Parquetec: Av. Tancredo Neves, 6731<br><br>
 
 <hr><br>
 
-⏰ <b>Horários:</b><br><br>
+<b>Horários:</b><br><br>
 
 JU:<br>
 Café: 06h45–08h00<br>
@@ -195,37 +174,41 @@ Jantar: 17h30–19h30<br><br>
 
 <hr><br>
 
-💰 <b>Valores:</b><br>
-Beneficiários: R$ 2,00<br>
-Geral: R$ 4,00<br>
+<b>Valores:</b><br><br>
+
+🎓 Beneficiários:<br>
+Café: R$ 2,00<br>
+Jantar: R$ 2,00<br><br>
+
+👨‍🎓 Geral:<br>
+Café: R$ 4,00<br>
+Jantar: R$ 4,00<br>
 
 </div>
 
 <!-- INFO -->
 <div id="infoPage" class="page">
-
 <h2>⚠️ Últimas Informações</h2><br>
-
-📚 Biblioteca fechada<br><br>
-
-💻 Equipe de TI fechada<br><br>
-
-⚠️ Motivo: Greve por tempo indeterminado
-
+Biblioteca fechada<br><br>
+TI fechado por greve
 </div>
 
 <!-- DEV -->
 <div id="devPage" class="page">
-
 <h2>👨‍💻 Desenvolvedor</h2><br>
-
-📱 Telefone:<br><br>
-
-<b>459998621902</b>
-
+459998621902
 </div>
 
-<!-- BOTÃO FIXO -->
+<!-- ANOTAÇÕES -->
+<div id="notesPage" class="page">
+<h2>📝 Anotações</h2><br>
+
+<textarea id="note"></textarea>
+<button onclick="saveNote()">Salvar</button>
+
+<div id="list"></div>
+</div>
+
 <button class="home-bottom" onclick="goHome()">🏠 Voltar para Início</button>
 
 <script>
@@ -249,7 +232,7 @@ function goHome(){
 
 /* COMPARTILHAR */
 function shareApp(){
-  const url = "https://kodular.app/FYM-SLW"; // coloque seu link
+  const url = "https://kodular.app/YDV-NRS";
 
   if(navigator.share){
     navigator.share({
@@ -262,6 +245,45 @@ function shareApp(){
     alert("Link copiado!");
   }
 }
+
+/* ANOTAÇÕES */
+function saveNote(){
+  const text = document.getElementById("note").value;
+  if(!text) return;
+
+  let notes = JSON.parse(localStorage.getItem("notes")||"[]");
+  notes.push(text);
+
+  localStorage.setItem("notes", JSON.stringify(notes));
+  document.getElementById("note").value="";
+  renderNotes();
+}
+
+function renderNotes(){
+  let notes = JSON.parse(localStorage.getItem("notes")||"[]");
+  const list = document.getElementById("list");
+  list.innerHTML="";
+
+  notes.forEach((n,i)=>{
+    let div=document.createElement("div");
+    div.style.background="#1e293b";
+    div.style.marginTop="10px";
+    div.style.padding="10px";
+    div.style.borderRadius="10px";
+
+    div.innerHTML = n + "<br><br><button onclick='deleteNote("+i+")'>Excluir</button>";
+    list.appendChild(div);
+  });
+}
+
+function deleteNote(i){
+  let notes = JSON.parse(localStorage.getItem("notes")||"[]");
+  notes.splice(i,1);
+  localStorage.setItem("notes", JSON.stringify(notes));
+  renderNotes();
+}
+
+renderNotes();
 
 </script>
 
