@@ -50,7 +50,6 @@ button {
   cursor:pointer;
 }
 
-/* CORES */
 .unila { background:#2563eb; }
 .sigaa { background:#9333ea; }
 .gmail { background:#ea4335; }
@@ -58,14 +57,14 @@ button {
 .facebook { background:#1877f2; }
 .biblioteca { background:#8b5cf6; }
 .intercampi { background:#0ea5e9; }
-.contato { background:#22c55e; }
-.smartec { background:#06b6d4; }
+.emergencia { background:#dc2626; }
 .enderecos { background:#eab308; color:black; }
 .ru { background:#f97316; }
 .info { background:#ef4444; }
 .dev { background:#6366f1; }
 .share { background:#10b981; }
 .notes { background:#14b8a6; }
+.smartec { background:#06b6d4; }
 
 .page {
   display:none;
@@ -81,27 +80,16 @@ textarea {
   padding:10px;
   margin-bottom:10px;
 }
-
-.home-bottom {
-  position:fixed;
-  bottom:0;
-  width:100%;
-  padding:16px;
-  background:#22c55e;
-  color:white;
-  font-weight:bold;
-}
 </style>
 </head>
 
 <body>
 
 <header>
-  <button onclick="goHome()">⬅</button>
+  <button onclick="goBack()">⬅</button>
   <button class="home-top" onclick="goHome()">🏠 Página Inicial</button>
 </header>
 
-<!-- HOME -->
 <div id="home" class="menu">
 
 <button class="unila" onclick="openLink('https://portal.unila.edu.br/')">Portal</button>
@@ -109,33 +97,21 @@ textarea {
 <button class="gmail" onclick="openLink('https://mail.google.com/')">Gmail</button>
 <button class="google" onclick="openLink('https://www.google.com/')">Google</button>
 
-<button class="facebook" onclick="openLink('https://www.facebook.com/unila.oficial')">
-Page UNILA
-</button>
+<button class="facebook" onclick="openLink('https://www.facebook.com/unila.oficial')">UNILA Facebook</button>
+<button class="biblioteca" onclick="openLink('https://portal.unila.edu.br/biblioteca')">Biblioteca</button>
+<button class="intercampi" onclick="openLink('https://portal.unila.edu.br/proagi/delog/arquivos/horario-intercampi/quadro-de-horario-intercampi.pdf')">Intercampi</button>
 
-<button class="biblioteca" onclick="openLink('https://portal.unila.edu.br/biblioteca')">
-Bibliotecas
-</button>
+<button class="smartec" onclick="openLink('https://www.facebook.com/profile.php?id=61562436416014')">Smart Tech</button>
 
-<button class="intercampi" onclick="openLink('https://portal.unila.edu.br/proagi/delog/arquivos/horario-intercampi/quadro-de-horario-intercampi.pdf')">
-Intercampi
-</button>
+<button class="emergencia" onclick="openPage('emergenciaPage')">🚨 Emergência</button>
 
-<button class="contato" onclick="openLink('https://portal.unila.edu.br/prograd/contato')">
-Contato
-</button>
-
-<button class="smartec" onclick="openLink('https://www.facebook.com/profile.php?id=61562436416014')">
-Smartec
-</button>
-
-<button class="enderecos" onclick="openPage('enderecosPage')">Endereços UNILA</button>
-<button class="ru" onclick="openPage('ruPage')">RU Restaurante</button>
+<button class="enderecos" onclick="openPage('enderecosPage')">Endereços</button>
+<button class="ru" onclick="openPage('ruPage')">Restaurantes</button>
 <button class="info" onclick="openPage('infoPage')">Últimas Informações</button>
 <button class="dev" onclick="openPage('devPage')">Desenvolvedor</button>
 <button class="notes" onclick="openPage('notesPage')">Anotações</button>
 
-<button class="share" onclick="shareApp()">📤 Compartilhar App</button>
+<button class="share" onclick="shareApp()">📤 Compartilhar</button>
 
 </div>
 
@@ -143,63 +119,84 @@ Smartec
 <div id="enderecosPage" class="page">
 <h2>📍 Endereços UNILA</h2><br>
 
-Jardim Universitário: Av. Tarquínio Joslin dos Santos, 1000<br><br>
-PTI: Av. Tancredo Neves, 6731<br><br>
-Almada: Av. Tancredo Neves, 3838<br><br>
-Integração: Av. Tancredo Neves, 3147
+Jardim Universitário (JU)<br>
+Av. Tarquínio Joslin dos Santos, 1000<br><br>
+
+PTI / Parquetec<br>
+Av. Tancredo Neves, 6731<br><br>
+
+Almada<br>
+Av. Tancredo Neves, 3838<br><br>
+
+Integração<br>
+Av. Tancredo Neves, 3147
 </div>
 
 <!-- RU -->
 <div id="ruPage" class="page">
+<h2>🍽️ Restaurantes UNILA</h2><br>
 
-<h2>🍽️ Restaurante Universitário (RU)</h2><br>
+JU - Av. Tarquínio Joslin dos Santos, 1000<br><br>
+PTI - Av. Tancredo Neves, 6731<br><br>
 
-<b>Locais:</b><br><br>
-
-JU: Av. Tarquínio Joslin dos Santos, 1000<br><br>
-Parquetec: Av. Tancredo Neves, 6731<br><br>
-
-<hr><br>
-
-<b>Horários:</b><br><br>
-
-JU:<br>
+<b>Horários:</b><br>
 Café: 06h45–08h00<br>
 Almoço: 11h00–13h00<br>
 Jantar: 17h30–19h30<br><br>
 
-Parquetec:<br>
-Almoço: 11h00–14h30<br>
-Jantar: 17h30–19h30<br><br>
-
-<hr><br>
-
-<b>Valores:</b><br><br>
-
-🎓 Beneficiários:<br>
-Café: R$ 2,00<br>
-Jantar: R$ 2,00<br><br>
-
-👨‍🎓 Geral:<br>
-Café: R$ 4,00<br>
-Jantar: R$ 4,00<br>
-
+<b>Valores:</b><br>
+Estudantes: R$2,00<br>
+Público geral: R$4,00
 </div>
 
 <!-- INFO -->
 <div id="infoPage" class="page">
-<h2>⚠️ Últimas Informações</h2><br>
-Biblioteca fechada<br><br>
-TI fechado por greve
+<h2>⚠️ Últimas Informações UNILA</h2><br>
+
+1. Greves podem afetar serviços administrativos e acadêmicos.<br><br>
+2. Servidores técnicos podem ter atividades reduzidas.<br><br>
+3. Bibliotecas podem funcionar parcialmente.<br><br>
+4. TI pode sofrer instabilidade em sistemas como SIGAA.<br><br>
+5. Aulas podem ser suspensas em paralisações docentes.<br><br>
+6. RU pode ter alterações de funcionamento.<br><br>
+7. UNILA segue em expansão institucional.<br><br>
+8. Campus Arandú em construção.<br><br>
+9. Projeto inclui laboratórios e biblioteca central.<br><br>
+10. Entrega depende de andamento das obras e orçamento.
+</div>
+
+<!-- EMERGÊNCIA -->
+<div id="emergenciaPage" class="page">
+<h2>🚨 Telefones Emergenciais</h2><br>
+
+Polícia Militar: 190<br>
+Polícia Civil: 197<br>
+Polícia Federal: 194<br>
+PRF: 191<br><br>
+
+Bombeiros: 193<br>
+SAMU: 192<br>
+Defesa Civil: 199<br><br>
+
+Guarda Municipal: 153<br><br>
+
+Hospital Municipal: (45) 3521-1800<br>
+UPA João Samek: (45) 3521-1900<br>
+UPA Morumbi: (45) 3901-3800<br>
+Hospital Costa Cavalcanti: (45) 3576-8000
 </div>
 
 <!-- DEV -->
 <div id="devPage" class="page">
 <h2>👨‍💻 Desenvolvedor</h2><br>
-459998621902
+
+Fernando<br>
+Estudante do curso de Serviço Social<br><br>
+
+<button onclick="openWhats()">WhatsApp</button>
 </div>
 
-<!-- ANOTAÇÕES -->
+<!-- NOTES -->
 <div id="notesPage" class="page">
 <h2>📝 Anotações</h2><br>
 
@@ -209,44 +206,47 @@ TI fechado por greve
 <div id="list"></div>
 </div>
 
-<button class="home-bottom" onclick="goHome()">🏠 Voltar para Início</button>
-
 <script>
 
-/* LINKS */
-function openLink(url){
-  window.location.href = url;
-}
+let historyStack = [];
 
-/* NAVEGAÇÃO */
+function openLink(url){ window.open(url, "_blank"); }
+
 function openPage(id){
+  historyStack.push(id);
   document.getElementById("home").style.display="none";
   document.querySelectorAll(".page").forEach(p=>p.style.display="none");
   document.getElementById(id).style.display="block";
 }
 
+function goBack(){
+  historyStack.pop();
+  if(historyStack.length === 0){ goHome(); return; }
+  let last = historyStack[historyStack.length -1];
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+  document.getElementById(last).style.display="block";
+}
+
 function goHome(){
+  historyStack = [];
   document.querySelectorAll(".page").forEach(p=>p.style.display="none");
   document.getElementById("home").style.display="grid";
 }
 
-/* COMPARTILHAR */
+function openWhats(){
+  window.open("https://wa.me/55459998621902","_blank");
+}
+
 function shareApp(){
   const url = "https://kodular.app/YDV-NRS";
-
   if(navigator.share){
-    navigator.share({
-      title: "UNILA App",
-      text: "Baixe o app da UNILA",
-      url: url
-    });
+    navigator.share({title:"UNILA App",text:"Baixe o app",url:url});
   } else {
     navigator.clipboard.writeText(url);
     alert("Link copiado!");
   }
 }
 
-/* ANOTAÇÕES */
 function saveNote(){
   const text = document.getElementById("note").value;
   if(!text) return;
