@@ -65,6 +65,7 @@ button {
 .share { background:#10b981; }
 .notes { background:#14b8a6; }
 .smartec { background:#06b6d4; }
+.editais { background:#0d9488; }
 
 .page {
   display:none;
@@ -103,11 +104,18 @@ textarea {
 
 <button class="smartec" onclick="openLink('https://www.facebook.com/profile.php?id=61562436416014')">Smart Tech</button>
 
+<button class="editais" onclick="openLink('https://documentos.unila.edu.br/')">Portal de Editais</button>
+
 <button class="emergencia" onclick="openPage('emergenciaPage')">🚨 Emergência</button>
 
-<button class="enderecos" onclick="openPage('enderecosPage')">📍 Endereços</button>
+<!-- ALTERADO -->
+<button class="enderecos" onclick="openPage('enderecosPage')">🏫 Campus da Unila</button>
+
 <button class="ru" onclick="openPage('ruPage')">🍽️ Restaurantes (RU)</button>
-<button class="info" onclick="openPage('infoPage')">⚠️ Informações</button>
+
+<!-- ALTERADO -->
+<button class="info" onclick="openLink('https://facebook.com/groups/1469303078173697/')">📰 Notícias</button>
+
 <button class="dev" onclick="openPage('devPage')">Desenvolvedor</button>
 <button class="notes" onclick="openPage('notesPage')">📝 Anotações</button>
 
@@ -115,21 +123,41 @@ textarea {
 
 </div>
 
-<!-- ENDEREÇOS -->
+<!-- CAMPUS (ATUALIZADO) -->
 <div id="enderecosPage" class="page">
-<h2>📍 Endereços UNILA</h2><br>
+<h2>🏫 Campus da Unila</h2><br>
 
 <b>Jardim Universitário (JU)</b><br>
-Av. Tarquínio Joslin dos Santos, 1000<br><br>
+Av. Tarquínio Joslin dos Santos, 1000<br>
+• Aulas presenciais de graduação<br>
+• Salas de aula equipadas<br>
+• Espaços de convivência<br>
+• Próximo ao Restaurante Universitário<br><br>
 
 <b>PTI / Parquetec</b><br>
-Av. Tancredo Neves, 6731<br><br>
+Av. Tancredo Neves, 6731<br>
+• Cursos com foco tecnológico<br>
+• Laboratórios modernos<br>
+• Auditórios para eventos e palestras<br><br>
 
 <b>Almada</b><br>
-Av. Tancredo Neves, 3838<br><br>
+Av. Tancredo Neves, 3838<br>
+• Salas administrativas<br>
+• Apoio acadêmico<br>
+• Atividades institucionais<br><br>
 
 <b>Integração</b><br>
-Av. Tancredo Neves, 3147
+Av. Tancredo Neves, 3147<br>
+• Espaços acadêmicos diversos<br>
+• Aulas e projetos<br>
+• Integração entre cursos<br><br>
+
+<b>Infraestrutura geral:</b><br>
+• Auditórios<br>
+• Bibliotecas<br>
+• Laboratórios<br>
+• Áreas de estudo<br>
+• Restaurantes universitários<br>
 </div>
 
 <!-- RU -->
@@ -147,22 +175,6 @@ Jantar: 17h30–19h30<br><br>
 <b>Valores:</b><br>
 Estudantes: R$2,00<br>
 Público geral: R$4,00
-</div>
-
-<!-- INFO -->
-<div id="infoPage" class="page">
-<h2>⚠️ Últimas Informações UNILA</h2><br>
-
-1. Greves podem afetar serviços administrativos e acadêmicos.<br><br>
-2. Servidores técnicos podem ter atividades reduzidas.<br><br>
-3. Bibliotecas podem funcionar parcialmente.<br><br>
-4. TI pode sofrer instabilidade em sistemas como SIGAA.<br><br>
-5. Aulas podem ser suspensas em paralisações docentes.<br><br>
-6. RU pode ter alterações de funcionamento.<br><br>
-7. UNILA segue em expansão institucional.<br><br>
-8. Campus Arandú em construção.<br><br>
-9. Projeto inclui laboratórios e biblioteca central.<br><br>
-10. Entrega depende de andamento das obras e orçamento.
 </div>
 
 <!-- EMERGÊNCIA -->
@@ -193,7 +205,8 @@ Hospital Costa Cavalcanti: (45) 3576-8000
 Fernando<br>
 Estudante do curso de Serviço Social<br><br>
 
-<button onclick="openWhats()">WhatsApp</button>
+<b>Email:</b><br>
+fa.oliveira.2018@aluno.unila.edu.br
 </div>
 
 <!-- NOTES -->
@@ -233,49 +246,23 @@ function goHome(){
   document.getElementById("home").style.display="grid";
 }
 
-function openWhats(){
-  window.open("https://wa.me/55459998621902","_blank");
-}
-
-/* -----------------------------
-   COMPARTILHAR (CORRIGIDO)
------------------------------ */
 function shareApp(){
-  const url = "https://kodular.app/MJW-LAJ";
+  const url = "https://kodular.app/BSM-FTU";
 
   const message = 
     "📱 *Unila – App do Estudante da UNILA*\n\n" +
-    "Funcionalidades do app:\n" +
-    "• Portal da UNILA\n" +
-    "• SIGAA\n" +
-    "• E-mail institucional (Gmail)\n" +
-    "• Google\n" +
-    "• Biblioteca\n" +
-    "• Facebook UNILA\n" +
-    "• Horário Intercampi\n" +
-    "• Últimas informações\n" +
-    "• Restaurantes Universitários (RU)\n" +
-    "• Endereços dos campi\n" +
-    "• Telefones de emergência\n" +
-    "• Área de anotações\n" +
-    "• Contato do desenvolvedor\n\n" +
-    "Baixe o aplicativo Unila:\n" + url;
+    "Funcionalidades:\n" +
+    "• Portal UNILA\n• SIGAA\n• E-mail\n• Biblioteca\n• Intercampi\n• RU\n• Campus\n• Emergência\n• Editais\n• Anotações\n\n" +
+    "Baixe:\n" + url;
 
   if(navigator.share){
-    navigator.share({
-      title: "Unila – App UNILA",
-      text: message,
-      url: url
-    });
+    navigator.share({title:"Unila App",text:message,url:url});
   } else {
     navigator.clipboard.writeText(message);
-    alert("Informações copiadas para compartilhar!");
+    alert("Copiado!");
   }
 }
 
-/* -----------------------------
-   ANOTAÇÕES
------------------------------ */
 function saveNote(){
   const text = document.getElementById("note").value;
   if(!text) return;
@@ -304,7 +291,6 @@ function renderNotes(){
 
     const btn = document.createElement("button");
     btn.textContent = "Excluir";
-    btn.style.marginTop = "10px";
     btn.onclick = ()=> deleteNote(i);
 
     div.appendChild(document.createElement("br"));
