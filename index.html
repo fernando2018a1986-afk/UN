@@ -16,6 +16,7 @@ body {
   color:white;
 }
 
+/* HEADER */
 header {
   display:flex;
   align-items:center;
@@ -34,6 +35,7 @@ header {
   font-weight:bold;
 }
 
+/* GRID */
 .menu {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
@@ -41,12 +43,14 @@ header {
   padding:16px;
 }
 
+/* BOTÕES */
 button {
   padding:16px;
   border:none;
   border-radius:12px;
   color:white;
   font-weight:bold;
+  cursor:pointer;
 }
 
 /* CORES */
@@ -61,14 +65,17 @@ button {
 .biblioteca { background:#8b5cf6; }
 .enderecos { background:#eab308; color:black; }
 .ru { background:#f97316; }
-.notes { background:#14b8a6; }
+.info { background:#ef4444; }
+.dev { background:#6366f1; } /* NOVO */
 
+/* PÁGINAS */
 .page {
   display:none;
   padding:20px;
   line-height:1.6;
 }
 
+/* BOTÃO FIXO */
 .home-bottom {
   position:fixed;
   bottom:0;
@@ -77,6 +84,7 @@ button {
   background:#22c55e;
   color:white;
   font-weight:bold;
+  border:none;
 }
 </style>
 </head>
@@ -116,86 +124,54 @@ Contato
 Smartec
 </button>
 
-<button class="enderecos" onclick="openPage('enderecosPage')">Endereços UNILA</button>
-<button class="ru" onclick="openPage('ruPage')">RU Restaurante</button>
+<button class="enderecos" onclick="openPage('enderecosPage')">
+Endereços UNILA
+</button>
+
+<button class="ru" onclick="openPage('ruPage')">
+RU Restaurante
+</button>
+
+<button class="info" onclick="openPage('infoPage')">
+Últimas Informações
+</button>
+
+<!-- NOVO BOTÃO -->
+<button class="dev" onclick="openPage('devPage')">
+Desenvolvedor
+</button>
 
 </div>
 
 <!-- ENDEREÇOS -->
 <div id="enderecosPage" class="page">
-
 <h2>📍 Endereços UNILA</h2><br>
-
-A UNILA (Universidade Federal da Integração Latino-Americana) possui múltiplas unidades em Foz do Iguaçu - PR:<br><br>
-
-🏫 <b>Jardim Universitário (JU)</b><br>
-Av. Tarquínio Joslin dos Santos, 1000<br>
-CEP: 85870-650<br><br>
-
-🏢 <b>Unidade PTI (Parque Tecnológico Itaipu)</b><br>
-Av. Tancredo Neves, 6731<br>
-CEP: 85867-970<br><br>
-
-🏢 <b>Edifício Rio Almada</b><br>
-Av. Tancredo Neves, 3838<br><br>
-
-🏢 <b>Campus Integração</b><br>
-Av. Tancredo Neves, 3147<br><br>
-
-<hr><br>
-
-<b>ℹ️ Informações importantes:</b><br><br>
-
-• A maioria das atividades ocorre no JU e Integração<br>
-• O acesso ao PTI exige credenciamento<br>
-• Consulte o portal da UNILA para confirmar locais
-
+Jardim Universitário: Av. Tarquínio Joslin dos Santos, 1000<br><br>
+PTI: Av. Tancredo Neves, 6731<br><br>
+Almada: Av. Tancredo Neves, 3838<br><br>
+Integração: Av. Tancredo Neves, 3147
 </div>
 
 <!-- RU -->
 <div id="ruPage" class="page">
+<h2>🍽️ Restaurante Universitário</h2><br>
+JU: Café 06h45–08h / Almoço 11h–13h / Jantar 17h30–19h30<br><br>
+Parquetec: Almoço 11h–14h30 / Jantar 17h30–19h30
+</div>
 
-<h2>🍽️ Restaurante Universitário (RU)</h2><br>
+<!-- INFO -->
+<div id="infoPage" class="page">
+<h2>⚠️ Últimas Informações</h2><br>
+📚 Biblioteca fechada<br><br>
+💻 Equipe de TI fechada<br><br>
+⚠️ Motivo: Greve com tempo indeterminado
+</div>
 
-A UNILA possui dois Restaurantes Universitários:<br><br>
-
-🏫 <b>RU Jardim Universitário (JU)</b><br>
-Av. Tarquínio Joslin dos Santos, 1000<br><br>
-
-🏢 <b>RU Itaipu Parquetec</b><br>
-Bloco 03 (antigo Bloco 02)<br>
-Av. Tancredo Neves, 6731<br><br>
-
-<hr><br>
-
-<b>⏰ Horários (segunda a sexta)</b><br><br>
-
-📍 JU:<br>
-☕ Café: 06h45 – 08h00<br>
-🍛 Almoço: 11h00 – 13h00<br>
-🌙 Jantar: 17h30 – 19h30<br><br>
-
-📍 Parquetec:<br>
-🍛 Almoço: 11h00 – 14h30<br>
-🌙 Jantar: 17h30 – 19h30<br><br>
-
-<hr><br>
-
-<b>💰 Valores</b><br><br>
-
-🎓 Beneficiários:<br>
-• Café: R$ 2,00<br>
-• Jantar: R$ 2,00<br><br>
-
-👨‍🎓 Discentes geral:<br>
-• Café: R$ 4,00<br>
-• Jantar: R$ 4,00<br><br>
-
-<hr><br>
-
-<b>ℹ️ Observações</b><br>
-Horários podem mudar durante recessos acadêmicos.
-
+<!-- DESENVOLVEDOR -->
+<div id="devPage" class="page">
+<h2>👨‍💻 Desenvolvedor</h2><br>
+📱 Telefone:<br><br>
+<b>459998621902</b>
 </div>
 
 <button class="home-bottom" onclick="goHome()">🏠 Voltar para Início</button>
