@@ -18,7 +18,6 @@ body {
 
 header {
   display:flex;
-  justify-content:space-between;
   align-items:center;
   padding:10px;
   background:var(--card);
@@ -28,12 +27,11 @@ header {
   flex:1;
   margin:0 10px;
   padding:12px;
-  font-weight:bold;
   border:none;
   border-radius:10px;
   background:#22c55e;
   color:white;
-  cursor:pointer;
+  font-weight:bold;
 }
 
 .menu {
@@ -48,16 +46,7 @@ button {
   border:none;
   border-radius:12px;
   color:white;
-  cursor:pointer;
   font-weight:bold;
-}
-
-textarea {
-  width:100%;
-  height:120px;
-  border-radius:10px;
-  border:none;
-  padding:10px;
 }
 
 /* CORES */
@@ -88,7 +77,6 @@ textarea {
   background:#22c55e;
   color:white;
   font-weight:bold;
-  border:none;
 }
 </style>
 </head>
@@ -98,30 +86,38 @@ textarea {
 <header>
   <button onclick="goHome()">⬅</button>
   <button class="home-top" onclick="goHome()">🏠 Página Inicial</button>
-  <div></div>
 </header>
 
 <!-- HOME -->
 <div id="home" class="menu">
 
-<button class="unila" onclick="openExternal('https://portal.unila.edu.br/')">Portal</button>
-<button class="sigaa" onclick="openExternal('https://sig.unila.edu.br/sigaa/verTelaLogin.do')">SIGAA</button>
-<button class="gmail" onclick="openExternal('https://mail.google.com/')">Gmail</button>
-<button class="google" onclick="openExternal('https://www.google.com/')">Google</button>
+<button class="unila" onclick="openLink('https://portal.unila.edu.br/')">Portal</button>
+<button class="sigaa" onclick="openLink('https://sig.unila.edu.br/sigaa/verTelaLogin.do')">SIGAA</button>
+<button class="gmail" onclick="openLink('https://mail.google.com/')">Gmail</button>
+<button class="google" onclick="openLink('https://www.google.com/')">Google</button>
 
-<button class="facebook" onclick="openExternal('https://www.facebook.com/unila.oficial')">Page UNILA</button>
+<button class="facebook" onclick="openLink('https://www.facebook.com/unila.oficial')">
+Page UNILA
+</button>
 
-<button class="biblioteca" onclick="openExternal('https://portal.unila.edu.br/biblioteca')">Bibliotecas</button>
+<button class="biblioteca" onclick="openLink('https://portal.unila.edu.br/biblioteca')">
+Bibliotecas
+</button>
 
-<button class="intercampi" onclick="openExternal('https://portal.unila.edu.br/proagi/delog/arquivos/horario-intercampi/quadro-de-horario-intercampi.pdf')">Intercampi</button>
+<button class="intercampi" onclick="openLink('https://portal.unila.edu.br/proagi/delog/arquivos/horario-intercampi/quadro-de-horario-intercampi.pdf')">
+Intercampi
+</button>
 
-<button class="contato" onclick="openExternal('https://portal.unila.edu.br/prograd/contato')">Contato</button>
+<button class="contato" onclick="openLink('https://portal.unila.edu.br/prograd/contato')">
+Contato
+</button>
 
-<button class="smartec" onclick="openExternal('https://www.facebook.com/profile.php?id=61562436416014')">Smartec</button>
+<button class="smartec" onclick="openLink('https://www.facebook.com/profile.php?id=61562436416014')">
+Smartec
+</button>
 
 <button class="enderecos" onclick="openPage('enderecosPage')">Endereços UNILA</button>
 <button class="ru" onclick="openPage('ruPage')">RU Restaurante</button>
-<button class="notes" onclick="openPage('notesPage')">Anotações</button>
 
 </div>
 
@@ -130,7 +126,7 @@ textarea {
 
 <h2>📍 Endereços UNILA</h2><br>
 
-A Universidade Federal da Integração Latino-Americana possui várias unidades em Foz do Iguaçu - PR:<br><br>
+A UNILA (Universidade Federal da Integração Latino-Americana) possui múltiplas unidades em Foz do Iguaçu - PR:<br><br>
 
 🏫 <b>Jardim Universitário (JU)</b><br>
 Av. Tarquínio Joslin dos Santos, 1000<br>
@@ -148,11 +144,11 @@ Av. Tancredo Neves, 3147<br><br>
 
 <hr><br>
 
-<b>ℹ️ Observações:</b><br><br>
+<b>ℹ️ Informações importantes:</b><br><br>
 
-• A maior parte das aulas ocorre no JU e Integração<br>
+• A maioria das atividades ocorre no JU e Integração<br>
 • O acesso ao PTI exige credenciamento<br>
-• Consulte seu curso no portal para confirmar o local
+• Consulte o portal da UNILA para confirmar locais
 
 </div>
 
@@ -161,7 +157,7 @@ Av. Tancredo Neves, 3147<br><br>
 
 <h2>🍽️ Restaurante Universitário (RU)</h2><br>
 
-A UNILA possui dois Restaurantes Universitários em Foz do Iguaçu:<br><br>
+A UNILA possui dois Restaurantes Universitários:<br><br>
 
 🏫 <b>RU Jardim Universitário (JU)</b><br>
 Av. Tarquínio Joslin dos Santos, 1000<br><br>
@@ -198,94 +194,28 @@ Av. Tancredo Neves, 6731<br><br>
 <hr><br>
 
 <b>ℹ️ Observações</b><br>
-Os horários podem sofrer alterações em recessos acadêmicos.
+Horários podem mudar durante recessos acadêmicos.
 
-</div>
-
-<!-- NOTAS -->
-<div id="notesPage" class="page">
-<textarea id="note"></textarea>
-<button onclick="saveNote()">Salvar</button>
-<div id="list"></div>
 </div>
 
 <button class="home-bottom" onclick="goHome()">🏠 Voltar para Início</button>
 
 <script>
 
-/* CONTROLE */
-let saiuDoApp = false;
+function openLink(url){
+  window.location.href = url;
+}
 
-function openExternal(url){
-  saiuDoApp = true;
-  localStorage.setItem("outside","1");
-  window.open(url, "_blank");
+function openPage(id){
+  document.getElementById("home").style.display="none";
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+  document.getElementById(id).style.display="block";
 }
 
 function goHome(){
   document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-  const home = document.getElementById("home");
-  home.style.display="grid";
-  setTimeout(()=>{ home.innerHTML = home.innerHTML; },50);
+  document.getElementById("home").style.display="grid";
 }
-
-function openPage(id){
-  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
-  document.getElementById("home").style.display="none";
-  document.getElementById(id).style.display="block";
-}
-
-/* LOOP FIX */
-setInterval(()=>{
-  if(saiuDoApp || localStorage.getItem("outside")==="1"){
-    goHome();
-    saiuDoApp = false;
-    localStorage.removeItem("outside");
-  }
-},1000);
-
-/* BOTÃO VOLTAR */
-history.pushState(null,null,location.href);
-window.onpopstate = function(){
-  goHome();
-  history.pushState(null,null,location.href);
-};
-
-/* EVENTOS */
-document.addEventListener("visibilitychange", ()=>{
-  if(!document.hidden) goHome();
-});
-
-/* NOTAS */
-function saveNote(){
-  const text=document.getElementById("note").value;
-  if(!text)return;
-  let notes=JSON.parse(localStorage.getItem("notes")||"[]");
-  notes.push(text);
-  localStorage.setItem("notes",JSON.stringify(notes));
-  document.getElementById("note").value="";
-  renderNotes();
-}
-
-function renderNotes(){
-  let notes=JSON.parse(localStorage.getItem("notes")||"[]");
-  const list=document.getElementById("list");
-  list.innerHTML="";
-  notes.forEach((n,i)=>{
-    let div=document.createElement("div");
-    div.innerHTML=n+"<br><button onclick='deleteNote("+i+")'>Excluir</button>";
-    list.appendChild(div);
-  });
-}
-
-function deleteNote(i){
-  let notes=JSON.parse(localStorage.getItem("notes")||"[]");
-  notes.splice(i,1);
-  localStorage.setItem("notes",JSON.stringify(notes));
-  renderNotes();
-}
-
-renderNotes();
 
 </script>
 
