@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UNILA App</title>
+<title>Unila App</title>
 
 <style>
 :root { --bg:#0f172a; --card:#1e293b; }
@@ -92,9 +92,9 @@ textarea {
 
 <div id="home" class="menu">
 
-<button class="unila" onclick="openLink('https://portal.unila.edu.br/')">Portal</button>
+<button class="unila" onclick="openLink('https://portal.unila.edu.br/')">Portal da UNILA</button>
 <button class="sigaa" onclick="openLink('https://sig.unila.edu.br/sigaa/verTelaLogin.do')">SIGAA</button>
-<button class="gmail" onclick="openLink('https://mail.google.com/')">Gmail</button>
+<button class="gmail" onclick="openLink('https://mail.google.com/')">E-mail Institucional</button>
 <button class="google" onclick="openLink('https://www.google.com/')">Google</button>
 
 <button class="facebook" onclick="openLink('https://www.facebook.com/unila.oficial')">UNILA Facebook</button>
@@ -105,11 +105,11 @@ textarea {
 
 <button class="emergencia" onclick="openPage('emergenciaPage')">🚨 Emergência</button>
 
-<button class="enderecos" onclick="openPage('enderecosPage')">Endereços</button>
-<button class="ru" onclick="openPage('ruPage')">Restaurantes</button>
-<button class="info" onclick="openPage('infoPage')">Últimas Informações</button>
+<button class="enderecos" onclick="openPage('enderecosPage')">📍 Endereços</button>
+<button class="ru" onclick="openPage('ruPage')">🍽️ Restaurantes (RU)</button>
+<button class="info" onclick="openPage('infoPage')">⚠️ Informações</button>
 <button class="dev" onclick="openPage('devPage')">Desenvolvedor</button>
-<button class="notes" onclick="openPage('notesPage')">Anotações</button>
+<button class="notes" onclick="openPage('notesPage')">📝 Anotações</button>
 
 <button class="share" onclick="shareApp()">📤 Compartilhar</button>
 
@@ -119,25 +119,25 @@ textarea {
 <div id="enderecosPage" class="page">
 <h2>📍 Endereços UNILA</h2><br>
 
-Jardim Universitário (JU)<br>
+<b>Jardim Universitário (JU)</b><br>
 Av. Tarquínio Joslin dos Santos, 1000<br><br>
 
-PTI / Parquetec<br>
+<b>PTI / Parquetec</b><br>
 Av. Tancredo Neves, 6731<br><br>
 
-Almada<br>
+<b>Almada</b><br>
 Av. Tancredo Neves, 3838<br><br>
 
-Integração<br>
+<b>Integração</b><br>
 Av. Tancredo Neves, 3147
 </div>
 
 <!-- RU -->
 <div id="ruPage" class="page">
-<h2>🍽️ Restaurantes UNILA</h2><br>
+<h2>🍽️ Restaurantes UNILA (RU)</h2><br>
 
-JU - Av. Tarquínio Joslin dos Santos, 1000<br><br>
-PTI - Av. Tancredo Neves, 6731<br><br>
+<b>JU:</b> Av. Tarquínio Joslin dos Santos, 1000<br><br>
+<b>PTI:</b> Av. Tancredo Neves, 6731<br><br>
 
 <b>Horários:</b><br>
 Café: 06h45–08h00<br>
@@ -237,16 +237,45 @@ function openWhats(){
   window.open("https://wa.me/55459998621902","_blank");
 }
 
+/* -----------------------------
+   COMPARTILHAR (CORRIGIDO)
+----------------------------- */
 function shareApp(){
   const url = "https://kodular.app/BSM-FTU";
+
+  const message = 
+    "📱 *Unila – App do Estudante da UNILA*\n\n" +
+    "Funcionalidades do app:\n" +
+    "• Portal da UNILA\n" +
+    "• SIGAA\n" +
+    "• E-mail institucional (Gmail)\n" +
+    "• Google\n" +
+    "• Biblioteca\n" +
+    "• Facebook UNILA\n" +
+    "• Horário Intercampi\n" +
+    "• Últimas informações\n" +
+    "• Restaurantes Universitários (RU)\n" +
+    "• Endereços dos campi\n" +
+    "• Telefones de emergência\n" +
+    "• Área de anotações\n" +
+    "• Contato do desenvolvedor\n\n" +
+    "Baixe o aplicativo Unila:\n" + url;
+
   if(navigator.share){
-    navigator.share({title:"UNILA App",text:"Baixe o app",url:url});
+    navigator.share({
+      title: "Unila – App UNILA",
+      text: message,
+      url: url
+    });
   } else {
-    navigator.clipboard.writeText(url);
-    alert("Link copiado!");
+    navigator.clipboard.writeText(message);
+    alert("Informações copiadas para compartilhar!");
   }
 }
 
+/* -----------------------------
+   ANOTAÇÕES
+----------------------------- */
 function saveNote(){
   const text = document.getElementById("note").value;
   if(!text) return;
@@ -271,7 +300,16 @@ function renderNotes(){
     div.style.padding="10px";
     div.style.borderRadius="10px";
 
-    div.innerHTML = n + "<br><br><button onclick='deleteNote("+i+")'>Excluir</button>";
+    div.textContent = n;
+
+    const btn = document.createElement("button");
+    btn.textContent = "Excluir";
+    btn.style.marginTop = "10px";
+    btn.onclick = ()=> deleteNote(i);
+
+    div.appendChild(document.createElement("br"));
+    div.appendChild(btn);
+
     list.appendChild(div);
   });
 }
