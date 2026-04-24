@@ -12,7 +12,7 @@
 
 body {
   font-family:Arial, sans-serif;
-  background:var(--bg);
+  background:#0f172a;
   color:white;
 }
 
@@ -20,7 +20,7 @@ header {
   display:flex;
   align-items:center;
   padding:10px;
-  background:var(--card);
+  background:#1e293b;
 }
 
 .home-top {
@@ -66,6 +66,8 @@ button {
 .notes { background:#14b8a6; }
 .smartec { background:#06b6d4; }
 .editais { background:#0d9488; }
+.internet { background:#3b82f6; }
+.estude { background:#22c55e; }
 
 .page {
   display:none;
@@ -87,8 +89,8 @@ textarea {
 <body>
 
 <header>
-  <button onclick="goBack()">⬅</button>
-  <button class="home-top" onclick="goHome()">🏠 Página Inicial</button>
+<button onclick="goBack()">⬅</button>
+<button class="home-top" onclick="goHome()">🏠 Página Inicial</button>
 </header>
 
 <div id="home" class="menu">
@@ -97,130 +99,211 @@ textarea {
 <button class="sigaa" onclick="openLink('https://sig.unila.edu.br/sigaa/verTelaLogin.do')">SIGAA</button>
 <button class="gmail" onclick="openLink('https://mail.google.com/')">E-mail Institucional</button>
 <button class="google" onclick="openLink('https://www.google.com/')">Google</button>
-
 <button class="facebook" onclick="openLink('https://www.facebook.com/unila.oficial')">UNILA Facebook</button>
 <button class="biblioteca" onclick="openLink('https://portal.unila.edu.br/biblioteca')">Biblioteca</button>
 <button class="intercampi" onclick="openLink('https://portal.unila.edu.br/proagi/delog/arquivos/horario-intercampi/quadro-de-horario-intercampi.pdf')">Intercampi</button>
 
 <button class="smartec" onclick="openLink('https://www.facebook.com/profile.php?id=61562436416014')">Smart Tech</button>
-
 <button class="editais" onclick="openLink('https://documentos.unila.edu.br/')">Portal de Editais</button>
 
 <button class="emergencia" onclick="openPage('emergenciaPage')">🚨 Emergência</button>
 
-<!-- ALTERADO -->
 <button class="enderecos" onclick="openPage('enderecosPage')">🏫 Campus da Unila</button>
 
 <button class="ru" onclick="openPage('ruPage')">🍽️ Restaurantes (RU)</button>
 
-<!-- ALTERADO -->
-<button class="info" onclick="openLink('https://facebook.com/groups/1469303078173697/')">📰 Notícias</button>
+<!-- BOTÃO RENOMEADO AQUI -->
+<button class="info" onclick="openLink('https://facebook.com/groups/1469303078173697/')">Grupo no Facebook</button>
 
 <button class="dev" onclick="openPage('devPage')">Desenvolvedor</button>
+
 <button class="notes" onclick="openPage('notesPage')">📝 Anotações</button>
 
 <button class="share" onclick="shareApp()">📤 Compartilhar</button>
 
+<!-- NOVOS BOTÕES -->
+<button class="internet" onclick="openPage('internetPage')">Configurar Internet</button>
+<button class="estude" onclick="openPage('estudPage')">Estude na UNILA</button>
+
 </div>
 
-<!-- CAMPUS (ATUALIZADO) -->
+<!-- CAMPUS UNILA -->
 <div id="enderecosPage" class="page">
 <h2>🏫 Campus da Unila</h2><br>
 
-<b>Jardim Universitário (JU)</b><br>
-Av. Tarquínio Joslin dos Santos, 1000<br>
-• Aulas presenciais de graduação<br>
-• Salas de aula equipadas<br>
-• Espaços de convivência<br>
-• Próximo ao Restaurante Universitário<br><br>
+<h3>📍 Campus Integração</h3>
+<b>Endereço:</b> Av. Tancredo Neves, 3147 – Porto Belo<br>
+<b>CEP:</b> 85867-000<br><br>
 
-<b>PTI / Parquetec</b><br>
-Av. Tancredo Neves, 6731<br>
-• Cursos com foco tecnológico<br>
-• Laboratórios modernos<br>
-• Auditórios para eventos e palestras<br><br>
+<h3>📍 Unidade Jardim Universitário (JU)</h3>
+<b>Endereço:</b> Av. Tarquínio Joslin dos Santos, 1000<br>
+<b>CEP:</b> 85870-650<br><br>
 
-<b>Almada</b><br>
-Av. Tancredo Neves, 3838<br>
-• Salas administrativas<br>
-• Apoio acadêmico<br>
-• Atividades institucionais<br><br>
+<h3>📍 Unidade PTI</h3>
+<b>Endereço:</b> Av. Tancredo Neves, 6731 – Parque Tecnológico Itaipu<br>
+<b>CEP:</b> 85867-970<br><br>
 
-<b>Integração</b><br>
-Av. Tancredo Neves, 3147<br>
-• Espaços acadêmicos diversos<br>
-• Aulas e projetos<br>
-• Integração entre cursos<br><br>
+<h3>📍 Edifício Rio Almada</h3>
+<b>Endereço:</b> Av. Tancredo Neves, 3838 – Porto Belo<br>
+<b>CEP:</b> 85867-633<br><br>
 
-<b>Infraestrutura geral:</b><br>
-• Auditórios<br>
-• Bibliotecas<br>
-• Laboratórios<br>
-• Áreas de estudo<br>
-• Restaurantes universitários<br>
+<h3>📍 Portal da Foz (Almoxarifado)</h3>
+<b>Endereço:</b> Rua Macucos, 131 – Portal da Foz<br>
+<b>CEP:</b> 85859-450<br><br>
+
 </div>
 
 <!-- RU -->
 <div id="ruPage" class="page">
-<h2>🍽️ Restaurantes UNILA (RU)</h2><br>
+<h2>🍽️ Restaurantes Universitários (RU)</h2>
 
-<b>JU:</b> Av. Tarquínio Joslin dos Santos, 1000<br><br>
-<b>PTI:</b> Av. Tancredo Neves, 6731<br><br>
+<h3>📍 RU – Jardim Universitário (RU-JU)</h3>
+<b>Endereço:</b> Av. Tarquínio Joslin dos Santos, 1000 – Jardim Universitário<br><br>
 
-<b>Horários:</b><br>
-Café: 06h45–08h00<br>
-Almoço: 11h00–13h00<br>
-Jantar: 17h30–19h30<br><br>
+<h3>📍 RU – PTI (RU-PTI)</h3>
+<b>Endereço:</b> Av. Tancredo Neves, 6731 – Parque Tecnológico Itaipu<br><br>
 
-<b>Valores:</b><br>
-Estudantes: R$2,00<br>
-Público geral: R$4,00
+<h3>⏰ Horários</h3>
+Café da manhã: 06h45 – 08h00<br>
+Almoço: 11h00 – 13h00<br>
+Jantar: 17h30 – 19h30<br><br>
+
+<h3>💲 Preços Atualizados</h3>
+Estudantes: R$ 2,00 (subsidiado)<br>
+Servidores: R$ 4,00<br>
+Visitantes: R$ 15 a R$ 20<br><br>
+
+<h3>🍽️ Informações adicionais</h3>
+– Opção vegetariana todos os dias<br>
+– Cardápio atualizado no SIGAA<br>
+– Pagamento presencial<br><br>
+
 </div>
 
 <!-- EMERGÊNCIA -->
 <div id="emergenciaPage" class="page">
-<h2>🚨 Telefones Emergenciais</h2><br>
+<h2>🚨 Telefones Emergenciais</h2>
 
-Polícia Militar: 190<br>
-Polícia Civil: 197<br>
-Polícia Federal: 194<br>
-PRF: 191<br><br>
+Polícia Militar – 190<br>
+SAMU – 192<br>
+Bombeiros – 193<br>
+UPA João Samek – (45) 2105-1100<br>
+Hospital Municipal – (45) 2105-4100<br>
+Guarda Municipal – (45) 2105-5100<br>
+Delegacia Central – (45) 3576-1400<br>
+Sanepar – 0800-200-0115<br>
+COPEL – 0800-510-0116<br>
+Defesa Civil – (45) 3521-9100<br>
+Prograd Unila – (45) 3522-9766<br>
+Prae Unila – (45) 3522-9983<br>
 
-Bombeiros: 193<br>
-SAMU: 192<br>
-Defesa Civil: 199<br><br>
+<br><b>Mais 5 telefones úteis:</b><br>
+Central de Táxi – (45) 3027-0101<br>
+Vigilância Sanitária – (45) 2105-8800<br>
+SOS Mulher – (45) 3521-1800<br>
+DEAM – (45) 3521-1550<br>
+Cataratas S.A. – (45) 3521-4433<br><br>
 
-Guarda Municipal: 153<br><br>
-
-Hospital Municipal: (45) 3521-1800<br>
-UPA João Samek: (45) 3521-1900<br>
-UPA Morumbi: (45) 3901-3800<br>
-Hospital Costa Cavalcanti: (45) 3576-8000
 </div>
 
-<!-- DEV -->
+<!-- DESENVOLVEDOR -->
 <div id="devPage" class="page">
-<h2>👨‍💻 Desenvolvedor</h2><br>
-
-Fernando<br>
-Estudante do curso de Serviço Social<br><br>
-
-<b>Email:</b><br>
-fa.oliveira.2018@aluno.unila.edu.br
+<h2>👨‍💻 Desenvolvedor</h2>
+Telefone: 45 99949-9759
 </div>
 
-<!-- NOTES -->
+<!-- ANOTAÇÕES -->
 <div id="notesPage" class="page">
-<h2>📝 Anotações</h2><br>
-
+<h2>📝 Anotações</h2>
 <textarea id="note"></textarea>
 <button onclick="saveNote()">Salvar</button>
-
 <div id="list"></div>
+</div>
+
+<!-- CONFIGURAR INTERNET -->
+<div id="internetPage" class="page">
+<h2>🌐 Configurar Internet UNILA</h2>
+
+<p>
+Para configurar a internet no campus da UNILA, selecione a rede <b>UNILA</b> ou <b>eduroam</b> nas configurações de Wi-Fi e utilize as credenciais do e-mail institucional.
+<br><br>
+<b>Android:</b><br>
+EAP: PEAP<br>
+Fase 2: MSCHAPV2<br>
+Certificado: “Não Validar”<br>
+Para eduroam: usuario@unila.edu.br<br><br>
+
+<b>Conexão Wi-Fi (Celular/Tablet):</b><br>
+Rede: UNILA ou eduroam<br>
+Método EAP: PEAP<br>
+Autenticação Fase 2: MSCHAPV2<br>
+Certificado: Não Validar<br>
+Identidade/Usuário: e-mail institucional (sem @unila.edu.br)<br>
+Senha: senha do e-mail<br><br>
+
+<b>iOS/iPhone:</b><br>
+Escolha a rede → coloque usuário e senha<br><br>
+
+<b>Notebook/Windows:</b><br>
+Rede: UNILA ou eduroam<br>
+Segurança: WPA2-Enterprise<br>
+Certificado: Não validar<br>
+Usuário/senha: e-mail institucional<br><br>
+
+<b>VPN (GlobalProtect):</b><br>
+Portal: vpn.unila.edu.br<br>
+Usuário/senha: e-mail institucional<br><br>
+
+<b>Rede Eduroam:</b><br>
+Permite acesso ao Wi-Fi em outras universidades<br><br>
+
+<b>Motorola:</b><br>
+Requer configurações extras — consultar secretaria ou T.I.<br>
+</p>
+
+</div>
+
+<!-- ESTUDE NA UNILA -->
+<div id="estudPage" class="page">
+<h2>🎓 Estude na UNILA</h2>
+
+<p>
+Para entrar na UNILA (Universidade Federal da Integração Latino-Americana), brasileiros utilizam principalmente a nota do Enem via SiSU.<br><br>
+
+<b>Principais Formas (Brasileiros):</b><br>
+SiSU – usando Enem recente<br>
+Vagas Remanescentes / Chamadão<br>
+Transferência e Portador de Diploma<br>
+Curso de Música via SiSU a partir de 2026<br>
+Todos os cursos são gratuitos<br><br>
+
+<b>PSI (Internacional):</b><br>
+Gratuito, sem provas, online<br>
+Para América Latina e Caribe (exceto brasileiros)<br>
+Baseado em histórico escolar<br>
+Modalidades: demanda social e demanda geral<br><br>
+
+<b>Outras formas:</b><br>
+PSIMA – Mercosul<br>
+PSRH – refugiados<br>
+PSIN – indígenas latino-americanos<br><br>
+
+Acompanhar o Portal de Editais da UNILA.<br>
+Atividades são bilíngues (português/espanhol).<br>
+</p>
+
 </div>
 
 <script>
 
+/* -----------------------------------------
+   SERVICE WORKER
+------------------------------------------- */
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+
+/* NAVEGAÇÃO */
 let historyStack = [];
 
 function openLink(url){ window.open(url, "_blank"); }
@@ -247,30 +330,24 @@ function goHome(){
 }
 
 function shareApp(){
-  const url = "https://kodular.app/BAE-RND";
+  const texto =
+    "Unila App\n\n" +
+    "Aplicativo com acesso rápido à UNILA, SIGAA, Portal de Documentos e E-mail Institucional.\n\n" +
+    "Baixe o app:\nhttps://kodular.app/XQF-VGV";
 
-  const message = 
-    "📱 *Unila – App do Estudante da UNILA*\n\n" +
-    "Funcionalidades:\n" +
-    "• Portal UNILA\n• SIGAA\n• E-mail\n• Biblioteca\n• Intercampi\n• RU\n• Campus\n• Emergência\n• Editais\n• Anotações\n\n" +
-    "Baixe:\n" + url;
-
-  if(navigator.share){
-    navigator.share({title:"Unila App",text:message,url:url});
-  } else {
-    navigator.clipboard.writeText(message);
-    alert("Copiado!");
-  }
+  const url = "https://wa.me/?text=" + encodeURIComponent(texto);
+  window.open(url, "_blank");
 }
 
+/* ANOTAÇÕES */
 function saveNote(){
   const text = document.getElementById("note").value;
   if(!text) return;
 
   let notes = JSON.parse(localStorage.getItem("notes")||"[]");
   notes.push(text);
-
   localStorage.setItem("notes", JSON.stringify(notes));
+
   document.getElementById("note").value="";
   renderNotes();
 }
@@ -279,36 +356,55 @@ function renderNotes(){
   let notes = JSON.parse(localStorage.getItem("notes")||"[]");
   const list = document.getElementById("list");
   list.innerHTML="";
-
   notes.forEach((n,i)=>{
     let div=document.createElement("div");
     div.style.background="#1e293b";
     div.style.marginTop="10px";
     div.style.padding="10px";
     div.style.borderRadius="10px";
-
     div.textContent = n;
 
-    const btn = document.createElement("button");
-    btn.textContent = "Excluir";
-    btn.onclick = ()=> deleteNote(i);
+    const btn=document.createElement("button");
+    btn.textContent="Excluir";
+    btn.onclick=()=>deleteNote(i);
 
     div.appendChild(document.createElement("br"));
     div.appendChild(btn);
-
     list.appendChild(div);
   });
 }
 
 function deleteNote(i){
-  let notes = JSON.parse(localStorage.getItem("notes")||"[]");
+  let notes=JSON.parse(localStorage.getItem("notes")||"[]");
   notes.splice(i,1);
-  localStorage.setItem("notes", JSON.stringify(notes));
+  localStorage.setItem("notes",JSON.stringify(notes));
   renderNotes();
 }
 
 renderNotes();
 
+</script>
+
+<!-- SERVICE WORKER EMBUTIDO -->
+<script id="sw-code" type="javascript/worker">
+const CACHE_NAME="unila-cache-v1";
+const FILES=["./","index.html"];
+
+self.addEventListener("install",e=>{
+  e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(FILES)));
+});
+
+self.addEventListener("fetch",e=>{
+  e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));
+});
+</script>
+
+<script>
+const swBlob=new Blob(
+  [document.querySelector("#sw-code").textContent],
+  {type:"text/javascript"}
+);
+navigator.serviceWorker.register(URL.createObjectURL(swBlob));
 </script>
 
 </body>
